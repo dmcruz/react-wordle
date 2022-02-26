@@ -1,0 +1,12 @@
+.keypad .row {
+  display: flex;
+  justify-content: center;
+}
+
+.keypad button {
+  padding: 10px;
+  margin: 3px;
+  font-size: 20pt;
+  text-transform: uppercase;
+  min-width: 50px;
+}
