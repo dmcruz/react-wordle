@@ -41,8 +41,11 @@ const WordRow = ({ rowNum }) => {
     const isRowAnswered = rowNum < attemptNumber;
     if (!isRowAnswered) return '';
 
+    let cssName = '';
     if (wordAnswer[position] === letter) {
-      return 'exact-match';
+      cssName = 'exact-match';
+      if (word === wordAnswer) cssName += ' jump';
+      return cssName;
     } else if (wordAnswer.includes(letter)) {
       return 'match';
     } else {
