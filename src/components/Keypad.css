@@ -10,3 +10,31 @@
   text-transform: uppercase;
   min-width: 50px;
 }
+
+
+@media screen and (min-width: 300px) {
+  .keypad button {
+    font-size: 12pt;
+    margin: 3px;
+    padding: 2px;
+    min-width: 30px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .keypad button {
+    font-size: 18pt;
+    margin: 3px;
+    padding: 5px;
+    min-width:30px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .keypad button {
+    font-size: 20pt;
+    padding: 10px;
+    margin: 3px;
+    min-width: 50px;
+  }
+}
