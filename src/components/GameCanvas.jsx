@@ -45,8 +45,9 @@ const GameCanvas = () => {
             if (userAnswer === wordAnswer) {
               dispatch(setIsAnswered(true));
               setErrorMessage('Impressive');
-            } else if (attemptNumber === 4 && userAnswer !== wordAnswer) {
+            } else if (attemptNumber === 5 && userAnswer !== wordAnswer) {
               setErrorMessage(wordAnswer.toUpperCase());
+              dispatch(setIsAnswered(true));
             }
           } else {
             setErrorMessage('Not in word list');
@@ -78,6 +79,9 @@ const GameCanvas = () => {
     };
   }, [userAnswer, handleKeyDown]);
 
+  const wordRows = [...Array(6).keys()].map((item) => (
+    <WordRow rowNum={item} key={`wr${item}`} />
+  ));
   return (
     <div>
       <div className="message-container">
@@ -89,13 +93,7 @@ const GameCanvas = () => {
         </div>
       </div>
       <div className="container">
-        <div className="game-canvas">
-          <WordRow rowNum={0} />
-          <WordRow rowNum={1} />
-          <WordRow rowNum={2} />
-          <WordRow rowNum={3} />
-          <WordRow rowNum={4} />
-        </div>
+        <div className="game-canvas">{wordRows}</div>
       </div>
     </div>
   );
