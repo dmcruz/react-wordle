@@ -13,6 +13,7 @@ const WordRow = ({ rowNum }) => {
   const userAnswer = useSelector((state) => state.game.userAnswer);
   const userAnswers = useSelector((state) => state.game.userAnswers);
   const shakeWord = useSelector((state) => state.game.shakeWord);
+  const isEvaluating = useSelector((state) => state.game.isEvaluating);
 
   useEffect(() => {
     if (rowNum + 1 === attemptNumber + 1) {
@@ -37,6 +38,7 @@ const WordRow = ({ rowNum }) => {
   const getTileMode = (letter, position) => {
     if (!letter) return;
     if (word === shakeWord) return 'shake';
+    if (isEvaluating === true && rowNum === attemptNumber) return 'flip';
 
     const isRowAnswered = rowNum < attemptNumber;
     if (!isRowAnswered) return '';
@@ -55,11 +57,31 @@ const WordRow = ({ rowNum }) => {
 
   return (
     <div className="word-row">
-      <LetterTile letter={ltr1} mode={getTileMode(ltr1, 0)} />
-      <LetterTile letter={ltr2} mode={getTileMode(ltr2, 1)} />
-      <LetterTile letter={ltr3} mode={getTileMode(ltr3, 2)} />
-      <LetterTile letter={ltr4} mode={getTileMode(ltr4, 3)} />
-      <LetterTile letter={ltr5} mode={getTileMode(ltr5, 4)} />
+      <LetterTile
+        letter={ltr1}
+        mode={getTileMode(ltr1, 0)}
+        isEvaluating={isEvaluating}
+      />
+      <LetterTile
+        letter={ltr2}
+        mode={getTileMode(ltr2, 1)}
+        isEvaluating={isEvaluating}
+      />
+      <LetterTile
+        letter={ltr3}
+        mode={getTileMode(ltr3, 2)}
+        isEvaluating={isEvaluating}
+      />
+      <LetterTile
+        letter={ltr4}
+        mode={getTileMode(ltr4, 3)}
+        isEvaluating={isEvaluating}
+      />
+      <LetterTile
+        letter={ltr5}
+        mode={getTileMode(ltr5, 4)}
+        isEvaluating={isEvaluating}
+      />
     </div>
   );
 };

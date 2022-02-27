@@ -98,3 +98,50 @@
   75% { transform: translateY(10%) }
   100% { transform: translateY(0%) }
 } 
+
+.flip {
+  animation: flip 0.6s;
+}
+
+.flip:nth-child(1) {
+  animation-delay: 120ms;
+}
+
+.flip:nth-child(2) {
+  animation-delay: 240ms;
+}
+
+.flip:nth-child(3) {
+  animation-delay: 360ms;
+}
+
+.flip:nth-child(4) {
+  animation-delay: 480ms;
+}
+
+.flip:nth-child(5) {
+  animation-delay: 600ms;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  10% {
+    background-color: #eee;
+    color: transparent;
+  }
+  50% {
+    transform: rotateX(90deg);
+    color: transparent;
+    background-color: #ddd;
+  }
+  60% {
+    color: black;
+    background-color: #ccc;
+  }
+  100% {
+    transform: rotateX(0deg);
+    color: black;
+  }
+}

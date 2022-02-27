@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   keysExactMatch: [],
   keysMatch: [],
   keysNoMatch: [],
+  isEvaluating: false,
 };
 
 const gameReducer = (state = INITIAL_STATE, action) => {
@@ -15,6 +16,11 @@ const gameReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         wordAnswer: action.payload,
+      };
+    case 'ADD_USER_WORD_BEGIN':
+      return {
+        ...state,
+        isEvaluating: true,
       };
     case 'ADD_USER_WORD':
       if (state.userAnswers.length < 6) {
@@ -30,6 +36,7 @@ const gameReducer = (state = INITIAL_STATE, action) => {
         });
         return {
           ...state,
+          isEvaluating: false,
           userAnswers: [...state.userAnswers, action.payload],
           keysExactMatch: [...state.keysExactMatch, ...exactMatch],
           keysMatch: [...state.keysMatch, ...match],

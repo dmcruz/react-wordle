@@ -36,19 +36,22 @@ const GameCanvas = () => {
             listWords.includes(userAnswer) ||
             validWords.includes(userAnswer)
           ) {
-            // fix flickering
-            const tmp = userAnswer;
-            dispatch(clearUserAnswer());
-            dispatch(addUserWord(tmp));
+            dispatch({ type: 'ADD_USER_WORD_BEGIN' });
+            setTimeout(() => {
+              // fix flickering
+              const tmp = userAnswer;
+              dispatch(clearUserAnswer());
+              dispatch(addUserWord(tmp));
 
-            // reveal the answer
-            if (userAnswer === wordAnswer) {
-              dispatch(setIsAnswered(true));
-              setErrorMessage('Impressive');
-            } else if (attemptNumber === 5 && userAnswer !== wordAnswer) {
-              setErrorMessage(wordAnswer.toUpperCase());
-              dispatch(setIsAnswered(true));
-            }
+              // reveal the answer
+              if (userAnswer === wordAnswer) {
+                dispatch(setIsAnswered(true));
+                setErrorMessage('Impressive');
+              } else if (attemptNumber === 5 && userAnswer !== wordAnswer) {
+                setErrorMessage(wordAnswer.toUpperCase());
+                dispatch(setIsAnswered(true));
+              }
+            }, 800);
           } else {
             setErrorMessage('Not in word list');
             dispatch(setShakeWord(userAnswer));
