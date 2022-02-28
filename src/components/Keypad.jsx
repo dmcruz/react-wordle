@@ -57,7 +57,11 @@ const Keypad = () => {
   return (
     <div className="keypad">
       <div className="row">{r1Keys}</div>
-      <div className="row">{r2Keys}</div>
+      <div className="row">
+        <div className="spacer-half" />
+        {r2Keys}
+        <div className="spacer-half" />
+      </div>
       <div className="row">{r3Keys}</div>
     </div>
   );
