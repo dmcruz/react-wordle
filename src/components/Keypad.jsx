@@ -4,13 +4,13 @@ import './Keypad.css';
 const Keypad = () => {
   const r1 = 'qwertyuiop'.split('');
   const r2 = 'asdfghjkl'.split('');
-  const r3 = '⏎zxcvbnm⌫'.split('');
+  const r3 = ['Enter', ...'zxcvbnm⌫'.split('')];
 
   const handleClick = (event, code) => {
     let keyCode = code;
     if (code === '⌫') {
       keyCode = 'Backspace';
-    } else if (code === '⏎') {
+    } else if (code === 'Enter') {
       keyCode = 'Enter';
     }
     window.dispatchEvent(new KeyboardEvent('keydown', { key: keyCode }));
