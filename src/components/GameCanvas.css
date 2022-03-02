@@ -22,12 +22,15 @@
 
 .no-match {
   background-color: #86888A;
+  color:#fff;
 }
 
 .match {
-  background-color: yellow;
+  background-color: #c9b458;
+  color:#fff;
 }
 
 .exact-match {
-  background-color: yellowgreen;
+  background-color: #6aaa64;
+  color:#fff;
 }

@@ -23,7 +23,19 @@ const gameReducer = (state = INITIAL_STATE, action) => {
         isEvaluating: true,
       };
     case 'ADD_USER_WORD':
-      if (state.userAnswers.length < 6) {
+      const len = state.userAnswers.length;
+      if (len < 6) {
+        // prevent duplicates when entering quickly
+        if (
+          len > 0 &&
+          state.userAnswer === '' &&
+          state.userAnswers[len - 1] === action.payload
+        ) {
+          return {
+            ...state,
+            isEvaluating: false,
+          };
+        }
         const correctAnswer = state.wordAnswer;
         const userAnswer = action.payload.split('');
         let exactMatch = [];
@@ -37,6 +49,7 @@ const gameReducer = (state = INITIAL_STATE, action) => {
         return {
           ...state,
           isEvaluating: false,
+          userAnswer: '',
           userAnswers: [...state.userAnswers, action.payload],
           keysExactMatch: [...state.keysExactMatch, ...exactMatch],
           keysMatch: [...state.keysMatch, ...match],

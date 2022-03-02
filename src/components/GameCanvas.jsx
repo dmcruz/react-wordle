@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addUserWord,
-  clearUserAnswer,
   setIsAnswered,
   setShakeWord,
   setUserAnswer,
@@ -38,10 +37,7 @@ const GameCanvas = () => {
           ) {
             dispatch({ type: 'ADD_USER_WORD_BEGIN' });
             setTimeout(() => {
-              // fix flickering
-              const tmp = userAnswer;
-              dispatch(clearUserAnswer());
-              dispatch(addUserWord(tmp));
+              dispatch(addUserWord(userAnswer));
 
               // reveal the answer
               if (userAnswer === wordAnswer) {

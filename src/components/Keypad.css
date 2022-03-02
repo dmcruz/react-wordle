@@ -13,6 +13,10 @@
   flex: 0.5;
 }
 
+.spacer {
+  width: 15px;
+}
+
 @media screen and (max-width: 480px) {
   .keypad {
     max-width: 320px;
@@ -46,6 +50,16 @@ button {
   background-color: #d3d6da;
   color: #000;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+
+button.special {
+  padding: 0 10px 0 10px;
+}
+
+@media screen and (max-width: 480px) {
+  button.special {
+    padding: 0;
+  }
 }
 
 button:focus {

@@ -3,11 +3,6 @@ export const setWordAnswer = (answer) => ({
   payload: answer,
 });
 
-export const clearUserAnswer = () => ({
-  type: 'SET_USER_ANSWER',
-  payload: '',
-});
-
 export const setUserAnswer = (userAnswer) => ({
   type: 'SET_USER_ANSWER',
   payload: userAnswer,
