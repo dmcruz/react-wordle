@@ -73,6 +73,8 @@ const gameReducer = (state = INITIAL_STATE, action) => {
         ...state,
         shakeWord: action.payload,
       };
+    case 'RESET_GAME':
+      return INITIAL_STATE;
     default:
       return state;
   }
