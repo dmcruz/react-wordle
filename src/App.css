@@ -44,6 +44,20 @@ header .refresh-button {
   h1 {
     font-size: 1em;
   }
+  
+  header {
+    padding: 10px;
+  }
+  
+  header .refresh-button {
+    position: static;
+    margin-top: 10px;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 @media screen and (min-width: 481px) {
   .keypad {
