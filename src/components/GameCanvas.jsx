@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addUserWord,
+  resetGame,
   setIsAnswered,
   setShakeWord,
   setUserAnswer,
@@ -19,6 +20,14 @@ const GameCanvas = () => {
   const userAnswer = useSelector((state) => state.game.userAnswer);
   const wordAnswer = useSelector((state) => state.game.wordAnswer);
   const attemptNumber = useSelector((state) => userAttemptNumber()(state));
+  const userAnswers = useSelector((state) => state.game.userAnswers);
+
+  // Clear error message when game is reset
+  useEffect(() => {
+    if (userAnswers.length === 0 && !isAnswered) {
+      setErrorMessage('');
+    }
+  }, [userAnswers, isAnswered]);
 
   const handleKeyDown = useCallback(
     (event) => {

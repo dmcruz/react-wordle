@@ -1,6 +1,35 @@
 # Wordle Clone
 
-Refresh browser for new wordle
+A React-based clone of the popular Wordle game with Redux state management.
+
+## How to Run Locally
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/dmcruz/react-wordle.git
+   cd react-wordle
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+4. **Open your browser**
+   
+   The app will automatically open at `http://localhost:3000/react-wordle`
+
+## Features
+
+- Click the "🔄 New Game" button in the top right to start a new game
+- Type letters using your keyboard
+- Press Enter to submit your guess
+- Press Backspace to delete letters
 
 # Implementation
 - Components: GameCanvas, WordRow, LetterTile, Keypad

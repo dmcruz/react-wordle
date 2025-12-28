@@ -23,3 +23,7 @@ export const setShakeWord = (shakeWord) => ({
   type: 'SET_SHAKE_WORD',
   payload: shakeWord,
 });
+
+export const resetGame = () => ({
+  type: 'RESET_GAME',
+});
